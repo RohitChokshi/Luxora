@@ -1,0 +1,195 @@
+@use '../variables' as *;
+
+.footer {
+    color: $black;
+    padding: 56px 64px;
+}
+
+.subscribe {
+    font-family: $NewYork;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 26px;
+    margin-bottom: 23px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.email-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 52px;
+    border: 1px solid $famous-brand-color;
+}
+
+.email-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    background-color: $body-color;
+}
+
+.email-input::placeholder {
+    font-family: $Futura;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0%;
+}
+
+.email-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    outline: none;
+}
+
+.email-button img {
+    width: 21px;
+    height: 9px;
+}
+
+.newsletter {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    margin-top: 28px;
+}
+
+.social-icons a {
+    margin: 0 16px 0 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 40px;
+}
+
+.footer-links h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 18px;
+}
+.footer-brand {
+    font-family: NewYork;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 44px;
+}
+
+.footer-rights {
+    font-family: $NewYork;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: 28px;
+}
+
+.quick-links {
+    width: 251px;
+}
+
+.company-links {
+    width: 317px;
+}
+
+.footer-header {
+    font-family: $NewYork;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    margin-bottom: 26px;
+}
+.footer-links li{
+    font-family: $Futura;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 22px;
+}
+
+.footer-border {
+    border: 1px solid $border;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .newsletter {
+        text-align: left;
+        max-width: 30%;
+    }
+
+    .footer-links {
+        flex-direction: row;
+    }
+
+    .footer-bottom {
+        text-align: right;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 0;
+        margin: 30px;
+    }
+    .footer-container {
+        align-items: unset;
+    }
+
+    .footer-links {
+        flex-direction: column;
+    }
+
+    .footer-header {
+        margin-bottom: 18px;
+    }
+
+    .footer-links li {
+        margin-bottom: 18px;
+    }
+
+    .newsletter {
+        text-align: left;
+    }
+
+    .footer-bottom {
+        text-align: left;
+        display: unset;
+    }
+
+    .footer-rights {
+        margin-top: 16px;
+    }
+}

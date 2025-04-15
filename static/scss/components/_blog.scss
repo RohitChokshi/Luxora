@@ -1,0 +1,156 @@
+@use '../variables' as *;
+
+.position {
+    position: sticky;
+}
+
+.blog-container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 72px;
+
+    &-title {
+        font-family: $NewYork;
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 62px;
+        text-align: center;
+        margin-bottom: 26px;
+    }
+
+    &-owner{
+        font-family: $Futura;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        text-align: center;
+        margin-bottom: 26px;
+    }
+
+    .social-icons {
+        text-align: center;
+        margin-bottom: 74px;
+    }
+
+    &-image {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    &-details {
+        font-family: $Futura;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 26px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    &-name {
+        font-family: $Futura;
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: bold;
+    }
+
+    &-image2{
+        text-align: center;
+        margin-top: 94px;
+        margin-bottom: 78px;
+    }
+
+    &-button {
+        font-family: $Futura;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 8px;
+        border: 1px solid $black;
+        width: 150px;
+        height: 40px;
+        margin-bottom: 34px;
+        background-color: $body-color;
+    }
+
+    &-flex-container {
+        margin-top: 94px;
+        margin-bottom: 69px;
+    }
+
+    &-title2 {
+        font-family: $NewYork;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 44px;
+        margin-bottom: 52px;
+        text-align: center;
+    }
+
+    &-flex {
+        display: flex;
+    }
+
+    &-flex-date {
+        font-family: $Futura;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        color: $secondary-color;
+        margin-bottom: 12px;
+    }
+
+    &-flex-details {
+        font-family: $NewYork;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 26px;
+    }
+
+    &-flex-child {
+        margin: 10px 23px 10px 23px;
+    }
+}
+
+.list-style {
+    list-style-type: inherit;
+}
+
+.footer-border1 {
+    border: 1px solid $border;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        margin-top: 100px;
+    }
+
+    .blog-container {
+        margin: 30px;
+
+        &-title {
+            font-size: 32px;
+            line-height: 36px;
+        }
+
+        &-image2 img {
+            width: 100%;
+        }
+
+        .desktop-only {
+            display: none;
+        }
+
+        .mobile-only {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+@use '../variables' as *;
+
+.collection {
+    font-family: $Futura;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.collection1 {
+    font-family: $NewYork;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 44px;
+    text-align: center;
+}
+
+#blog {
+    margin-top: 94px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 54px;
+}
+
+.flex-card {
+    flex: 1;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.flex-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.flex-card p {
+    padding: 15px;
+    color: #333;
+    font-weight: bold;
+}
+
+.flex-card:hover {
+    transform: translateY(-10px);
+}
+
+.flex-details {
+    font-family: $NewYork;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 36px;
+}
+
+@media (max-width: 768px) {
+    #blog {
+        margin-top: 126px;
+        margin-bottom: 70px;
+    }
+
+    .flex-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        gap: 10px;
+        padding: 10px;
+        margin-top: 72px;
+    }
+
+    .flex-card {
+        flex: 0 0 70%;
+        scroll-snap-align: center;
+        max-width: none;
+    }
+
+    .flex-card img {
+        height: auto;
+    }
+
+    .flex-card p {
+        font-size: 20px;
+    }
+}
