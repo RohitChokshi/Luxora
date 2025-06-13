@@ -67,12 +67,17 @@
         margin-bottom: 70px;
     }
 
+    .collection1 {
+        margin-left: 52px;
+        margin-right: 52px;
+    }
+
     .flex-container {
         flex-wrap: nowrap;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
-        gap: 10px;
+        gap: 20px;
         padding: 10px;
         margin-top: 72px;
     }

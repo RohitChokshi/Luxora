@@ -87,9 +87,10 @@
     display: flex;
     align-items: center;
     padding: 32px;
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
+    z-index: 1;
 }
 
 .navbar-m .logo {
@@ -103,6 +104,10 @@
     flex-direction: column;
     cursor: pointer;
     z-index: 1001;
+}
+
+.fixed-position {
+    position: fixed;
 }
 
 .hamburger span {
@@ -214,7 +219,9 @@
 }
 
 @media (max-width: 768px) {
-
+    .hero1 {
+        background-image: url('/static/images/Banner.png');
+    }
     .navbar {
         display: none;
     }

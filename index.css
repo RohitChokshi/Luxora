@@ -22,6 +22,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #fffbf1;
+}
+
 .main-container {
   background-color: #fffbf1;
 }
@@ -35,11 +39,12 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-1750px);
+    transform: translateX(50%);
   }
 }
 .slider {
-  height: 50px;
+  height: 70px;
+  margin-top: 55px;
   margin-bottom: 46px;
   overflow: hidden;
   position: relative;
@@ -61,13 +66,18 @@
   top: 0;
 }
 .slider .slide-track {
-  animation: scroll var(--animationSpeed) linear infinite;
   display: flex;
-  width: 3500px;
+  animation: scroll var(--animationSpeed) linear infinite;
+  flex: none;
+  align-items: center;
 }
 .slider .slide {
   height: 100px;
   width: 300px;
+  text-align: center;
+  font-size: 2em;
+  padding: 7px;
+  display: inline-block;
 }
 
 .most-famous {
@@ -101,18 +111,6 @@
   display: block;
   transition: opacity 0.3s ease-in-out;
 }
-.most-famous .most-famous-tiles .tile .product-image .hover-product-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-.most-famous .most-famous-tiles .tile .product-image:hover .hover-product-image {
-  opacity: 1;
-}
-.most-famous .most-famous-tiles .tile .product-image:hover .defult-product-image {
-  opacity: 0;
-}
 .most-famous .most-famous-tiles .tile .product-info {
   padding: 1rem 10px;
 }
@@ -134,20 +132,36 @@
   height: 22px;
 }
 
+@media (min-width: 768px) {
+  .product-image .hover-product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+  }
+  .product-image:hover .hover-product-image {
+    opacity: 1;
+  }
+  .product-image:hover .defult-product-image {
+    opacity: 0;
+  }
+  .most-famous-text {
+    width: unset;
+  }
+}
 @media (max-width: 768px) {
   .most-famous .most-famous-tiles {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    gap: 10px;
+    gap: 20px;
     padding: 10px;
     margin: 46px 30px 0 30px;
     justify-content: unset;
   }
   .most-famous .tile {
     flex: 0 0 80%;
-    /* Each card takes 80% of the screen width */
     scroll-snap-align: center;
     max-width: none;
   }
@@ -156,6 +170,9 @@
   }
   .most-famous .tile p {
     font-size: 0.9rem;
+  }
+  .most-famous .hover-product-image {
+    display: none;
   }
 }
 .hero {
@@ -245,9 +262,10 @@
   display: flex;
   align-items: center;
   padding: 32px;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1;
 }
 
 .navbar-m .logo {
@@ -261,6 +279,10 @@
   flex-direction: column;
   cursor: pointer;
   z-index: 1001;
+}
+
+.fixed-position {
+  position: fixed;
 }
 
 .hamburger span {
@@ -371,6 +393,9 @@
   }
 }
 @media (max-width: 768px) {
+  .hero1 {
+    background-image: url("/static/images/Banner.png");
+  }
   .navbar {
     display: none;
   }
@@ -400,7 +425,7 @@
   background: rgba(255, 255, 255, 0.5019607843);
   color: #000;
   padding: 50px;
-  width: 50%;
+  width: 662px;
 }
 
 .video-Section {
@@ -410,8 +435,8 @@
 
 @media (max-width: 768px) {
   .centered {
-    width: 250px;
-    padding: 20px;
+    width: 289px;
+    padding: 69px 28px 102px 28px;
   }
   .container {
     margin: 46px 30px 0 30px;
@@ -419,7 +444,6 @@
 }
 .product-grid {
   overflow: hidden;
-  padding-top: 106px;
 }
 .product-grid .grid-container {
   display: flex;
@@ -462,11 +486,17 @@
 .product-grid .grid-container .col .grid-tile .grid-img:hover.normal {
   opacity: 0;
 }
+@media (min-width: 768px) {
+  .product-grid .grid-container {
+    padding: 106px 60px 0 60px;
+  }
+}
 @media (max-width: 768px) {
   .product-grid .grid-container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 106px 30px 0 30px;
   }
   .product-grid .grid-container .col .grid-tile {
     max-width: 333px;
@@ -514,7 +544,7 @@
   gap: 20px;
   width: 100%;
   padding: 20px;
-  margin-top: 74px;
+  margin-top: 54px;
 }
 
 .flex-card {
@@ -553,12 +583,16 @@
     margin-top: 126px;
     margin-bottom: 70px;
   }
+  .collection1 {
+    margin-left: 52px;
+    margin-right: 52px;
+  }
   .flex-container {
     flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    gap: 10px;
+    gap: 20px;
     padding: 10px;
     margin-top: 72px;
   }
@@ -734,7 +768,7 @@
 @media (max-width: 768px) {
   .footer {
     padding: 0;
-    margin: 30px;
+    margin: 32px;
   }
   .footer-container {
     align-items: unset;
@@ -750,6 +784,7 @@
   }
   .newsletter {
     text-align: left;
+    margin-right: 13px;
   }
   .footer-bottom {
     text-align: left;
@@ -874,7 +909,7 @@
 }
 
 @media (max-width: 768px) {
-  .main-container {
+  .blog-main-container {
     margin-top: 100px;
   }
   .blog-container {

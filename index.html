@@ -20,8 +20,8 @@
       <div class="menu-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="#contact">Contact</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/index.html#footer">Contact Us</a>
       </div>
       <div class="border"></div>
       <div class="bottom-tabs">
@@ -42,8 +42,8 @@
     <div class="navbar-menu">
       <a href="#home">Home</a>
       <a href="/index.html#about">About</a>
-      <a href="/index.html#blog">Blog</a>
-      <a href="#contact">Contact Us</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/index.html#footer">Contact Us</a>
     </div>
     <div class="navbar-logo"><img src="static/images/Luxora.png" alt=""></div>
     <div class="navbar-icons">
@@ -203,7 +203,7 @@
             <picture>
               <source srcset="static/images/productGrid/Card2-m.jpg" media="(max-width: 768px)">
               <source srcset="static/images/productGrid/Card2.jpg" media="(max-width: 1512px)">
-              <img class="grid-img normal" src="static/images/productGrid/grid-r3-c1.jpg" alt="Example Image">
+              <img class="grid-img normal" src="static/images/productGrid/Card2.jpg" alt="Example Image">
             </picture>
             <img class="grid-img hover" src="static/images/productGrid/Card2-h.jpg" alt="White Dress" />
           </div>
@@ -221,7 +221,7 @@
             <picture>
               <source srcset="static/images/productGrid/Card4-m.jpg" media="(max-width: 768px)">
               <source srcset="static/images/productGrid/Card4.jpg" media="(max-width: 1512px)">
-              <img class="grid-img normal" src="static/images/productGrid/Card-4.jpg" alt="Example Image">
+              <img class="grid-img normal" src="static/images/productGrid/Card4.jpg" alt="Example Image">
             </picture>
             <img class="grid-img hover" src="static/images/productGrid/Card4-h.jpg" alt="Shiny Top" />
           </div>
@@ -273,7 +273,7 @@
       </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="footer-container">
         <div class="newsletter">
           <p class="subscribe">Subscribe To Our Newsletter</pp>
@@ -321,26 +321,60 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const carousel = document.querySelector(".slide-track");
+    const items = document.querySelectorAll(".slide");
+
+    // Clone each item to create an infinite loop effect
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      carousel.appendChild(clone); // Append clone to the end of the carousel
+    });
+  });
+
+  if (window.innerWidth <= 768) {
+    const tiles = document.querySelectorAll('.tile');
+    tiles.forEach(tile => {
+      tile.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent any click action that might change the image
+      });
+    });
+  }
+
   $(window).scroll(function () {
     var height = $(window).scrollTop();
     if (height > 200) {
       $('.navbar').addClass('bg_blur');
+      $('.navbar-m').addClass('bg_blur');
     } else {
       $('.navbar').removeClass('bg_blur');
+      $('.navbar-m').removeClass('bg_blur');
     }
     if ($("#menu-toggle").is(":checked")) {
       $(".navbar-m").removeClass("bg_blur");
     }
   });
+  
   $(document).ready(function () {
-    const openIcon = "static/images/Humburger.png";
-    const closeIcon = "static/images/close.png";
+        const openIcon = "static/images/Humburger.png";
+        const closeIcon = "static/images/close.png";
 
-    $(".hamburger img").click(function () {
-      const currentSrc = $(this).attr("src");
-      $(this).attr("src", currentSrc === openIcon ? closeIcon : openIcon);
+        $(".hamburger img").click(function () {
+            const currentSrc = $(this).attr("src");
+            const isMenuOpen = currentSrc === openIcon;
+
+            // Toggle image
+            $(this).attr("src", isMenuOpen ? closeIcon : openIcon);
+
+            // Add or remove fixed positioning
+            if (isMenuOpen) {
+                $(this).addClass("fixed-position");
+            } else {
+                $(this).removeClass("fixed-position");
+            }
+        });
     });
-  });
+
 </script>
 
 </html>

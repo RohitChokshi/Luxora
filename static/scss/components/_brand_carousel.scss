@@ -10,12 +10,13 @@
     }
 
     100% {
-        transform: translateX(calc(-250px * 7))
+        transform: translateX(50%)
     }
 }
 
 .slider {
-    height: 50px;
+    height: 70px;
+    margin-top: 55px;
     margin-bottom: 46px;
     overflow: hidden;
     position: relative;
@@ -41,13 +42,18 @@
     }
 
     .slide-track {
-        animation: scroll var(--animationSpeed) linear infinite;
         display: flex;
-        width: calc(250px * 14);
+        animation: scroll var(--animationSpeed) linear infinite;
+        flex: none;
+        align-items: center;
     }
 
     .slide {
         height: 100px;
         width: 300px;
+        text-align: center;
+        font-size: 2em;
+        padding: 7px;
+        display: inline-block;
     }
 }
