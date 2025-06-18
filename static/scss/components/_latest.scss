@@ -34,7 +34,6 @@
     flex: 1;
     overflow: hidden;
     text-align: center;
-    transition: transform 0.3s ease;
 }
 
 .flex-card img {
@@ -50,14 +49,14 @@
     font-weight: bold;
 }
 
-.flex-card:hover {
-    transform: translateY(-10px);
+.flex-card a {
+    text-decoration: none;
 }
 
 .flex-details {
     font-family: $NewYork;
     font-weight: 400;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 36px;
 }
 

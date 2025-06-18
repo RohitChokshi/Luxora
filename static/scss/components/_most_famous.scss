@@ -80,9 +80,6 @@
             }
         }
     }
-    .most-famous-text {
-        width: unset;
-    }
 }
 @media (max-width: 768px) {
     .most-famous {
@@ -111,8 +108,17 @@
             font-size: 0.9rem;
         }
 
-        .hover-product-image {
-            display: none;
+        .product-image {
+            img {
+                height: auto;
+            }
         }
+
+        .hover-product-image {
+            display: none !important;
+        }
+    }
+        .most-famous-text {
+        width: unset !important;
     }
 }

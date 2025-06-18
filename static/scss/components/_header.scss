@@ -1,5 +1,13 @@
 @use '../variables' as *;
 
+body {
+    font-family: $NewYork;
+
+    &.menu-open {
+        overflow: hidden;
+    }
+}
+
 .hero {
     height: 900px;
     background-attachment: fixed;
@@ -12,221 +20,206 @@
     background-image: url('/static/images/Hero.png');
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    padding: 36px 60px 36px 60px;
-    height: 100px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1;
-}
-
-.navbar-menu {
-    display: flex;
-    gap: 32px;
-    flex: 1;
-}
-
-.navbar-menu a {
-    color: $header-font;
-    text-decoration: none;
-    font-family: $Futura;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 26px;
-}
-
-.navbar-menu a:hover {
-    text-decoration: underline;
-}
-
-.navbar-logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    flex: 1;
-}
-
-.navbar-icons {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 1;
-    justify-content: end;
-}
-
-.navbar-icons i {
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.navbar-icons i:hover {
-    color: #aaa;
-}
-
-.hero img {
-    position: relative;
-    width: 100%;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin: 0;
-}
-
-.hero p {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-}
-
-.navbar-m {
-    display: flex;
-    align-items: center;
-    padding: 32px;
-    position: fixed;
+.header {
+    position: absolute;
     width: 100%;
     top: 0;
-    z-index: 1;
-}
+    z-index: 99;
 
-.navbar-m .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    flex: 1;
-    text-align: center;
-}
-
-.hamburger {
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.fixed-position {
-    position: fixed;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: $black;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-.menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $white;
-    z-index: 1000;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: left;
-    transform: translateX(-100%);
-    transition: transform 0.5s ease-in-out;
-}
-
-.menu-overlay .menu-links {
-    padding: 112px 30px;
-    flex-grow: 1;
-}
-
-.menu-overlay a {
-    font-family: $NewYork;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 36px;
-    display: block;
-    text-decoration: none;
-    color: $black;
-    margin-bottom: 1rem;
-}
-
-#menu-toggle {
-    display: none;
-}
-
-#menu-toggle:checked~.menu-overlay {
-    display: flex;
-    transform: translateY(0);
-}
-
-#menu-toggle:checked~.hamburger span:nth-child(1) {
-    transform: rotate(50deg) translate(8px, 8px);
-}
-
-#menu-toggle:checked~.hamburger span:nth-child(2) {
-    opacity: 0;
-}
-
-#menu-toggle:checked~.hamburger span:nth-child(3) {
-    transform: rotate(-50deg) translate(5px, -5px);
-}
-
-.menu-overlay .border {
-    border-top: 2px solid $famous-brand-color;
-    width: 90%;
-    margin: 0 auto 10px auto;
-}
-
-.menu-overlay .borderBetween {
-    margin: 0 10px;
-    width: 1px;
-    height: 35px;
-    background-color: $famous-brand-color;
-}
-
-.menu-overlay .bottom-tabs {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0.5rem 0;
-}
-
-.bottom-tabs .tab {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    text-decoration: none;
-    color: $black;
-    font-family: $Futura;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 26px;
-}
-
-.bottom-tabs .tab-icon {
-    font-size: 1.5rem;
-}
-
-.bg_blur {
-    backdrop-filter: blur(40px);
-}
-
-@media (min-width: 767px) {
-    .navbar-m {
-        display: none;
+    &.scrolled {
+        .navbar {
+            background: $navbar-color;
+            backdrop-filter: blur(40px);
+        }
     }
-}
 
-@media (max-width: 768px) {
-    .hero1 {
-        background-image: url('/static/images/Banner.png');
-    }
     .navbar {
-        display: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.375rem;
+        position: relative;
+
+        // Mobile Elements
+        .hamburger {
+            display: block;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            z-index: 101;
+            position: relative;
+
+            .close-icon {
+                display: none;
+            }
+
+            &[aria-expanded="true"] {
+                .menu-icon {
+                    display: none;
+                }
+
+                .close-icon {
+                    display: block;
+                }
+            }
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+
+            img {
+                height: auto;
+            }
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+
+            .icons {
+                display: flex;
+                gap: 2.125rem;
+
+                .search-icon,
+                .account-icon {
+                    display: none;
+                }
+            }
+        }
     }
 
-    .bottom-tabs {
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: $white;
+        z-index: 99;
+        transition: left 0.3s ease;
+        padding: 6rem 2rem;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $body-color;
+
+        &.active {
+            left: 0;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 60px 32px 26px;
+
+            .menu-footer {
+                margin-top: 1rem;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                .search,
+                .account {
+                    display: flex;
+                    gap: 14px;
+                }
+
+                .search {
+                    &::before {
+                        content: url('/static/images/Search.png');
+                    }
+                }
+
+                .account {
+                    &::before {
+                        content: url('/static/images/User.png');
+                    }
+                }
+                .v-separator {
+                    color: $separator-border-color;
+                } 
+            }
+        }
+
+        ul {
+            list-style: none;
+            text-align: center;
+
+            li {
+                margin: 2rem 0;
+                text-align: start;
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
     }
+}
+.h4-m {
+    font-family: "NewYork", sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+    color: #000;
+}
+
+// Desktop Styles
+@media (min-width: 768px) {
+    .header {
+        .navbar {
+            padding: 1.875rem 3.75rem;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+
+            .hamburger {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                order: 0;
+                list-style: none;
+
+                li a {
+                    text-decoration: none;
+                }
+            }
+
+            .nav-icons {
+                order: 2;
+
+                .icons {
+
+                    .search-icon,
+                    .account-icon {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+    }
+
+    .text-m {
+        font-family: $Futura;
+        font-size: 1.125rem;
+        font-weight: 400;
+        line-height: 1.625rem;
+        color: #000;
+    }
+}
+
+.separator {
+    width: 100%;
+    border-top: 2px solid $separator-border-color;
 }

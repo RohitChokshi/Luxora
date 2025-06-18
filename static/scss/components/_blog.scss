@@ -154,3 +154,20 @@
         }
     }
 }
+
+.fade-in {
+    opacity: 1;
+    transform: none;
+
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    @media (min-width: 768px) {
+        opacity: 0;
+        transition-timing-function: cubic-bezier(.4,0,1,1);
+        transform: translateY(60px);
+        transition: transform .6s ease-in,opacity .9s ease-in;
+    }
+}
